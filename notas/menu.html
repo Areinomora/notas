@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Plataforma de Notas</title>
+</head>
+<body>
+    <div class="container-menu">
+        <h2>Seleccione su rol:</h2>
+        <ul class="options">
+            
+            <li><a href="login-admin.html">Administrador</a></li>
+            <li><a href="login-profesor.html">Profesor</a></li>
+            <li><a href="login-estudiante.html">Estudiante</a></li>
+
+            <button id="inicio-btn">Ir a la página principal</button>
+
+            
+        </ul>
+    </div>
+    <script>
+       const inicioButton = document.getElementById('inicio-btn');
+
+       inicioButton.addEventListener('click', function () {
+        window.location.href = 'index.html'; 
+     });
+ 
+    </script>
+</body>
+</html>

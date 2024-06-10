@@ -1,0 +1,389 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(imagenes/fondo.jpeg);
+    background-size: cover; 
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: black; 
+}
+
+
+a {
+    color: #007BFF; 
+    text-decoration: none; 
+    transition: color 0.3s; 
+}
+
+a:hover {
+    color: #0056b3; 
+}
+
+
+
+.container {
+    text-align: center;
+    
+}
+
+header {
+    padding: 45px 0;
+    
+}
+
+
+
+nav ul {
+    list-style: none;
+    padding: 50px;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    background: blue; 
+    padding: 20px 50px;
+    border: 2px solid #fff; 
+    border-radius: 5px;
+}
+
+.title-box {
+    background: rgba(0, 123, 255, 0.7); 
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.title-box h1 {
+    color: #fff;
+    font-size: 36px;
+    margin: 0;
+}
+
+
+.login-box {
+    background: rgba(255, 255, 255, 0.8); 
+    width: 300px;
+    margin: 0 auto;
+    padding:40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.forgot-password a {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.container-login{
+    padding: 90px;
+}
+
+.container-menu {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h2 {
+    color: blue;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.options {
+    list-style: none;
+    padding: 0;
+}
+
+.options li {
+    margin: 20px;
+}
+
+.options a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.options a:hover {
+    background-color: #0056b3;
+}
+
+
+
+.container-profesor {
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 40px;
+    background-color: rgba(240, 240, 240, 0.8); 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button.editar,
+button.eliminar {
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.container-estudiante {
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto; 
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+
+#imprimir-btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#imprimir-btn:hover {
+    background-color: #0056b3;
+}
+.container-admin {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 30px;
+    padding-bottom: 40px; 
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+form {
+    text-align: left;
+}
+
+.input-container-admin {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    flex: 1;
+    margin-right: 10px;
+}
+
+input,
+select {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+i {
+    padding: 10px;
+}
+.container-menu {
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+.options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options li {
+    margin-bottom: 10px;
+    
+}
+
+.options a {
+    display: block;
+    background-color: #007BFF; 
+    border: none;
+    border-radius: 5px;
+    padding: 20px 100px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.options a:hover {
+    background-color: #0056b3;
+}
+
+#inicio-btn {
+    background-color: #007BFF; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#inicio-btn:hover {
+    background-color: #0056b3;
+}

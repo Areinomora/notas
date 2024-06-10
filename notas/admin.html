@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Administrador</title>
+</head>
+<body>
+    <div class="container-admin">
+        <h2>Registro de Usuario</h2>
+        <form id="registro-form">
+            <div class="input-container">
+                <label for="nombre"><i class="fa fa-user"></i> Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="input-container">
+                <label for="contrasena"><i class="fa fa-lock"></i> Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+            </div>
+
+            <div class="input-container">
+                <label for="rol"><i class="fa fa-user-circle"></i> Rol:</label>
+                <select id="rol" name="rol" required>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="profesor">Profesor</option>
+                    <option value="administrador">Administrador</option>
+                </select>
+            </div>
+
+            <button type="submit"><i class="fa fa-check"></i> Registrar</button>
+            <button id="menu-btn">Ir al menú</button>
+
+        </form>
+    </div>
+    <script>
+        const menuButton = document.getElementById('menu-btn');
+
+         menuButton.addEventListener('click', function () {
+         window.location.href = 'menu.html';
+      });
+
+    </script>
+</body>
+</html>

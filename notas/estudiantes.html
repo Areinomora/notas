@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Notas de Estudiante</title>
+</head>
+<body>
+    <div class="container-estudiante">
+        <h2>Notas Registradas</h2>
+        <input type="text" id="search" placeholder="Buscar por nombre, materia o nota">
+        <button id="search-button">Buscar</button>
+        <button id="limpiar-button">Limpiar</button>
+        <ul id="notas-list"></ul>
+        <button id="imprimir-btn">Imprimir Notas</button>
+        <button id="menu-btn">Ir al menú</button>
+    </div>
+
+    <script>
+        const notasList = document.getElementById('notas-list');
+        const imprimirBtn = document.getElementById('imprimir-btn');
+        const searchInput = document.getElementById('search');
+        const searchButton = document.getElementById('search-button');
+        const limpiarButton = document.getElementById('limpiar-button');
+        const notasRegistradas = JSON.parse(localStorage.getItem('notas') || '[]');
+
+        function agregarNota(nombre, materia, nota) {
+            const listItem = document.createElement('li');
+            const nombreSpan = document.createElement('span');
+            nombreSpan.textContent = `Nombre: ${nombre}`;
+            nombreSpan.classList.add('nombre');
+            const materiaSpan = document.createElement('span');
+            materiaSpan.textContent = `Materia: ${materia}`;
+            materiaSpan.classList.add('materia');
+            const notaSpan = document.createElement('span');
+            notaSpan.textContent = `Nota: ${nota}`;
+            notaSpan.classList.add('nota');
+
+            listItem.appendChild(nombreSpan);
+            listItem.appendChild(materiaSpan);
+            listItem.appendChild(notaSpan);
+
+            notasList.appendChild(listItem);
+        }
+
+        function actualizarNotas(notas) {
+            notasList.innerHTML = '';
+            notas.forEach(nota => {
+                agregarNota(nota.nombre, nota.materia, nota.nota);
+            });
+        }
+
+        function filtrarNotas(textoBuscado) {
+            const notasFiltradas = notasRegistradas.filter(nota => {
+                const textoNota = `${nota.nombre} ${nota.materia} ${nota.nota}`;
+                return textoNota.toLowerCase().includes(textoBuscado.toLowerCase());
+            });
+            return notasFiltradas;
+        }
+
+        searchButton.addEventListener('click', function () {
+            const textoBuscado = searchInput.value.trim();
+            const notasFiltradas = filtrarNotas(textoBuscado);
+            actualizarNotas(notasFiltradas);
+        });
+
+        limpiarButton.addEventListener('click', function () {
+            actualizarNotas(notasRegistradas);
+            searchInput.value = '';
+        });
+
+        imprimirBtn.addEventListener('click', function () {
+            window.print();
+        });
+
+        const menuButton = document.getElementById('menu-btn');
+
+        menuButton.addEventListener('click', function () {
+            window.location.href = 'menu.html';
+        });
+
+        actualizarNotas(notasRegistradas);
+    </script>
+</body>
+</html>

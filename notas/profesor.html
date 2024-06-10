@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Registro de Notas</title>
+</head>
+<body>
+    <div class="container-profesor">
+        <h2>Registro de Notas</h2>
+        <form id="notas-form">
+            <label for="nombre">Nombre del Estudiante:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="materia">Materia:</label>
+            <input type="text" id="materia" name="materia" required>
+
+            <label for ="nota">Nota:</label>
+            <input type="text" id="nota" name="nota" required>
+
+            <button type="submit">Registrar</button>
+            <button id="menu-btn">Ir al menú</button>
+
+        </form>
+
+        <h2>Notas Registradas</h2>
+        <div id="busqueda">
+            <label for="buscar">Buscar por Nombre, Materia o Nota:</label>
+            <input type="text" id="buscar" placeholder="Texto a buscar">
+            <button id="buscar-btn">Buscar</button>
+            <button id="limpiar-btn">Limpiar</button>
+        </div>
+        <ul id="notas-list"></ul>
+    </div>
+
+    <script>
+        const notasForm = document.getElementById('notas-form');
+        const notasList = document.getElementById('notas-list');
+        const buscarInput = document.getElementById('buscar');
+        const buscarBtn = document.getElementById('buscar-btn');
+        const limpiarBtn = document.getElementById('limpiar-btn');
+
+        notasForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const materia = document.getElementById('materia').value;
+            const nota = document.getElementById('nota').value;
+
+            const listItem = document.createElement('li');
+
+            const nombreSpan = document.createElement('span');
+            nombreSpan.textContent = `Nombre: ${nombre}`;
+            nombreSpan.classList.add('nombre');
+
+            const materiaSpan = document.createElement('span');
+            materiaSpan.textContent = `Materia: ${materia}`;
+            materiaSpan.classList.add('materia');
+
+            const notaSpan = document.createElement('span');
+            notaSpan.textContent = `Nota: ${nota}`;
+            notaSpan.classList.add('nota');
+
+            listItem.appendChild(nombreSpan);
+            listItem.appendChild(materiaSpan);
+            listItem.appendChild(notaSpan);
+
+            const editarButton = document.createElement('button');
+            editarButton.innerHTML = '<i class="fa fa-pencil"></i> Editar';
+            editarButton.classList.add('editar');
+
+            const eliminarButton = document.createElement('button');
+            eliminarButton.innerHTML = '<i class="fa fa-trash"></i> Eliminar';
+            eliminarButton.classList.add('eliminar');
+
+            listItem.appendChild(editarButton);
+            listItem.appendChild(eliminarButton);
+
+            notasList.appendChild(listItem);
+
+            const notasRegistradas = JSON.parse(localStorage.getItem('notas') || '[]');
+            notasRegistradas.push({ nombre, materia, nota });
+            localStorage.setItem('notas', JSON.stringify(notasRegistradas));
+
+            notasForm.reset();
+        });
+
+        notasList.addEventListener('click', function (e) {
+            if (e.target.classList.contains('editar')) {
+                const listItem = e.target.parentElement;
+                const nombreSpan = listItem.querySelector('.nombre');
+                const materiaSpan = listItem.querySelector('.materia');
+                const notaSpan = listItem.querySelector('.nota');
+                const nuevoNombre = prompt('Editar el nombre:', nombreSpan.textContent.replace('Nombre: ', ''));
+                const nuevaMateria = prompt('Editar la materia:', materiaSpan.textContent.replace('Materia: ', ''));
+                const nuevaNota = prompt('Editar la nota:', notaSpan.textContent.replace('Nota: ', ''));
+
+                if (nuevoNombre !== null && nuevaMateria !== null && nuevaNota !== null) {
+                    nombreSpan.textContent = `Nombre: ${nuevoNombre}`;
+                    materiaSpan.textContent = `Materia: ${nuevaMateria}`;
+                    notaSpan.textContent = `Nota: ${nuevaNota}`;
+                }
+            } else if (e.target.classList.contains('eliminar')) {
+                const listItem = e.target.parentElement;
+                notasList.removeChild(listItem);
+            }
+        });
+
+        buscarBtn.addEventListener('click', function () {
+            const textoBusqueda = buscarInput.value.toLowerCase();
+            const elementos = notasList.getElementsByTagName('li');
+
+            for (const elemento of elementos) {
+                const contenido = elemento.textContent.toLowerCase();
+
+                if (contenido.includes(textoBusqueda)) {
+                    elemento.style.display = 'block';
+                } else {
+                    elemento.style.display = 'none';
+                }
+            }
+        });
+
+        limpiarBtn.addEventListener('click', function () {
+            const elementos = notasList.getElementsByTagName('li');
+
+            for (const elemento of elementos) {
+                elemento.style.display = 'block';
+            }
+            buscarInput.value = '';
+        });
+        const menuButton = document.getElementById('menu-btn');
+
+        menuButton.addEventListener('click', function () {
+            window.location.href = 'menu.html';
+        });
+    </script>
+</body>
+</html>
+
